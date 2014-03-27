@@ -72,22 +72,25 @@ public class Servlet extends HttpServlet {
 					if(teste.contains("<td") && teste.contains("</td>"))
 								 lis.add(teste.substring(teste.indexOf(">")+1, teste.indexOf("/")-1));
 					
+			if(!lis.isEmpty()) {
+				Resposta objectos = new Resposta();
+				
+					objectos.setLogradouro(lis.get(0));
+					objectos.setBairro(lis.get(1));
+					objectos.setLocalidade(lis.get(2));
+					objectos.setUf(lis.get(3));
+					objectos.setCep(lis.get(4));
+					
+				
+				out.println(objectos.getLogradouro());
+				out.println(objectos.getBairro());
+				out.println(objectos.getLocalidade());
+				out.println(objectos.getUf());
+				out.println(objectos.getCep());
+			}
+			else
+				out.print("Valor não encontrado");
 			
-		Resposta objectos = new Resposta();
-		
-			objectos.setLogradouro(lis.get(0));
-			objectos.setBairro(lis.get(1));
-			objectos.setLocalidade(lis.get(2));
-			objectos.setUf(lis.get(3));
-			objectos.setCep(lis.get(4));
-			
-		
-		out.println(objectos.getLogradouro());
-		out.println(objectos.getBairro());
-		out.println(objectos.getLocalidade());
-		out.println(objectos.getUf());
-		out.println(objectos.getCep());
-		
 	}
 
 }
